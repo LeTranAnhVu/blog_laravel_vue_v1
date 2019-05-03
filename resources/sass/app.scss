@@ -1,0 +1,117 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/css/font-awesome.min.css';
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+
+//leave the global custom style here
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+
+    h1, h2, h3, h4, h5, h6, p {
+        margin-bottom: 0;
+    }
+}
+
+.blog-quote {
+    margin: 0;
+    padding: 20px 50px !important;
+    color: #555 !important;
+    background: #eee;
+    font-style: italic;
+    font-size: 1.3em;
+    letter-spacing: 1.2px;
+    line-height: 25px;
+    border-radius: 15px 50px 30px 5px;
+    border: 0 !important;
+    word-wrap: break-word;
+}
+
+.review {
+    border-radius: 10px;
+    border: #555 1px solid;
+    min-height: 500px;
+    max-height: 700px !important;
+    overflow: auto;
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        opacity: 0;
+        transition: all 0.1s ease-in;
+
+        i {
+            font-size: 1.5em;
+        }
+    }
+
+    &:hover {
+        animation: flash-color 1s ease-out;
+
+        .overlay {
+            opacity: .9;
+            display: block;
+        }
+    }
+
+    .smaller {
+        font-size: 0.3rem;
+    }
+
+    @keyframes flash-color {
+        0% {
+            background: initial;
+        }
+        50% {
+            background: #dddddd;
+        }
+        100% {
+            background: initial;
+        }
+    }
+}
+
+.fullscreen {
+    position: absolute !important;
+    background: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    min-height: 100%;
+    overflow: visible;
+    z-index: 999;
+
+    .overlay {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        opacity: 0;
+        transition: all 0.1s ease-in;
+
+        i {
+            font-size: 1.5em;
+        }
+    }
+
+    &:hover {
+        .overlay {
+            opacity: .9;
+            display: block;
+        }
+    }
+}
+
