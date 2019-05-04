@@ -27,9 +27,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import Cookie from 'vue-cookies';
 import router from './router.js';
 import App from './App.vue';
 window.Vue.prototype.$http = window.axios;
+
+window.Vue.use(Cookie); // access as this.$cookie
 
 const app = new Vue({
     router,

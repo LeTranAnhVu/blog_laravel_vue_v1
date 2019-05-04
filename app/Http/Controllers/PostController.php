@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     /**
@@ -39,9 +39,9 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->get('title');
         $post->content = $request->get('content');
-        $post->user_id = 1;
+        $post->user_id = Auth::user()->id;
         $post->save();
-        return new Response('create success', 200);
+        return new Response(Auth::user(), 200);
     }
 
     /**

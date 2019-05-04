@@ -27,9 +27,9 @@
 
     <!-- Modal -->
     <modal
+      ref="innerModal"
       :title="':))))'"
       :body="'Would you like to do that bro?'"
-      :trigger="isShowModal"
       @yes="post"
     />
 
@@ -78,25 +78,18 @@
       },
       wannaPost() {
         // upload the data to server
-        console.log('hshs');
-        this.isShowModal = true;
+        this.$refs.innerModal.trigger();
       },
       post(){
-        // this.$http.post(this.postUrl, {
-        //   title: this.resultBlog.title,
-        //   content: this.resultBlog.content
-        // }).then(res=>{
-        //   console.log(res);
-        //   this.redirectTo();
-        // }).catch(err=>{
-        //   console.log(err);
-        // })
+        let token = this.$cookies.get('X-API-TOKEN');
         this.$http({
           method: 'post',
           url: this.postUrl,
-          header: {
+          // withCredentials: true,
+          headers : {
             'Content-Type' : 'application/json',
-            'Accept' : 'application/json'
+            'Accept' : 'application/json',
+            'Authorization' : 'Bearer '+ token
           },
           data: {
             title: this.resultBlog.title,

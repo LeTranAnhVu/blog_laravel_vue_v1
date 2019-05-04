@@ -37,11 +37,11 @@
 <script>
   export default {
     name: 'modal',
-    props: ['title', 'body', 'trigger'],
-    watch: {
-      trigger(val) {
-       return (val) ? this.$refs.triggerButton.click() : null;
-      },
+    props: ['title', 'body'],
+    methods: {
+      trigger(){
+        this.$refs.triggerButton.click();
+      }
     },
   };
 </script>
